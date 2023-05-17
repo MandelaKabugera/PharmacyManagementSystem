@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid d-flex justify-content-center text-center mt-2 bg-light">
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a href="">ClientData</a>
+        </div>
+    </div>
+
+    <div class="row ml-5">
+        <div class="col-sm-8 mb-2">
+            <a class="btn btn-success" th:href="@{/user/login}">Logout</a>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container text-center">
+    <a class=" btn btn-success mb-4 mt-4" th:href="@{/request/new}">Add Client</a>
+    <table class="table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>FirstNam</th>
+            <th>LastNam</th>
+            <th>IdNumber</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>EntranceDate</th>
+            <th>OutDate</th>
+            <th>PaidAmount</th>
+            <th>RoomNumber</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="request : ${listClient}">
+            <tr>
+                <td>[[${request.id}]]</td>
+                <td>[[${request.firstname}]]</td>
+                <td>[[${request.lastname}]]</td>
+                <td>[[${request.id_no}]]</td>
+                <td>[[${request.phone}]]</td>
+                <td>[[${request.address}]]</td>
+                <td>[[${request.entranceDate}]]</td>
+                <td>[[${request.outDate}]]</td>
+                <td>[[${request.paid_money}]]</td>
+                <td>[[${request.room_no}]]</td>
+                <td>
+                    <a class="btn btn-success" th:href="@{'/client/edit/' +${request.id}}">Edit</a>
+                    <a class="btn btn-danger" th:href="@{'/client/delete/' +${request.id}}">Delete</a>
+                </td>
+<!--                <td>-->
+<!--                    <a class="btn btn-success" th:href="@{'/client/edit/' +${request.id}}">Edit</a>-->
+<!--                    <a class="btn btn-primary" th:href="@{'/client/delete/' +${request.id}}">Delete</a>-->
+<!--                </td>-->
+
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+    <button type="button" class="btn btn-secondary" onclick="showUsers()">View Users</button>
+    <button type="button" class="btn btn-danger" onclick="showHomePage()">Exit</button>
+</div>
+
+<script>
+    function showUsers(){
+        window.location = "/user/list";
+    }
+
+    function showHomePage(){
+        window.location = "/";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <title>[[${pageTitle}]]</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary text-center">
+  <div class="container-fluid text-center">
+    <a class="navbar-brand" th:href="@{/}">Home</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/user/new}">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  th:href="@{/user/login}">Login</a>
+        </li>
+
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center mt-4">
+  <div class="card">
+    <div class="card-header"><h1>clint form</h1></div>
+    <div class="card-body">
+      <form th:action="@{/client/save}" method="post" th:object="${client}">
+        <div class="form-group">
+          <label for="firstName">FirstName</label>
+          <input type="text" class="form-control" th:field="*{firstname}" required />
+        </div>
+        <div class="form-group">
+          <label for="lastName">LastName</label>
+          <input type="text" class="form-control" th:field="*{lastname}" required />
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">PhoneNumber</label>
+          <input type="number" class="form-control" th:field="*{phone}" minlength="10" maxlength="10" required />
+        </div>
+        <div class="form-group">
+          <label for="roomNumber">RoomNumber</label>
+          <input type="number" class="form-control" th:field="*{room_no}" minlength="10" maxlength="10" required />
+        </div>
+        <div class="form-group">
+          <label for="idNumber">IdNumber</label>
+          <input type="number" class="form-control" th:field="*{id_no}" maxlength="16" minlength="16" required />
+        </div>
+        <div class="form-group">
+          <label for="paidAmount">PaidAmount</label>
+          <input type="number" class="form-control" th:field="*{paid_money}" required />
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" th:field="*{address}" required />
+        </div>
+        <div class="form-group">
+          <label for="EntranceDate">EntraceDate</label>
+          <input type="date" class="form-control" th:field="*{entranceDate}" required />
+        </div>
+        <div class="form-group">
+          <label for="outDate">OutDate</label>
+          <input type="date" class="form-control" th:field="*{outDate}" required />
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit Here">
+      </form>
+    </div>
+  </div>
+
+
+</div>
+<script>
+  function showHomePage(){
+    window.location = "/";
+  }
+</script>
+</body>
+</html>

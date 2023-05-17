@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary text-center">
+    <div class="container-fluid text-center">
+        <a class="navbar-brand" th:href="@{/}">Home</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/user/new}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"  th:href="@{/user/login}">Login</a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+    <div class="container-fluid text-center">
+
+        <div class="collapse navbar-collapse" id="navbar-Supported-Content">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/user/login}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"  th:href="@{/users/new}">Login</a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header"><h1>Login</h1></div>
+        <div th:if="${message}" class="alert alert-danger">
+            [[${message}]]
+        </div>
+        <div class="card-body">
+            <form th:action="@{/user/login/save}" method="post" th:object="${user}">
+                <div class="form-group">
+                    <label>PhoneNumber</label>
+                    <input type="number" class="form-control" th:field="*{phone}" required />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" th:field="*{password}" required />
+                </div>
+                <input class="btn btn-primary" type="submit" value="Login Here">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

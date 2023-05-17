@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <title>MedecineForm</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary text-center">
+  <div class="container-fluid text-center">
+    <a class="navbar-brand" href="#">Home</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/user/new}">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  th:href="@{/user/login}">Login</a>
+        </li>
+
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container text-center mt-4">
+  <div class="card">
+    <div class="card-header"><h2>Add Medecine</h2></div>
+    <div class="card-body">
+      <form th:action="@{/me/save}" method="post" th:object="${user}">
+        <div class="form-group">
+          <label for="medecineName">MedecineName</label>
+          <input type="text" th:field="*{medecine_name}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="medecineNumber">MedecineNumber</label>
+          <input type="number" th:field="*{medecine_number}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="medecineprice">MedecinePrice</label>
+          <input type="number" th:field="*{medecine_price}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="manufacturedDate">ManufacturedDate</label>
+          <input type="date" th:field="*{manfactured_date}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="ExpiredDate">ExpiredDate</label>
+          <input type="date" th:field="*{expired_date}" class="form-control" required>
+        </div>
+        <input class="btn btn-primary" type="submit" value="submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

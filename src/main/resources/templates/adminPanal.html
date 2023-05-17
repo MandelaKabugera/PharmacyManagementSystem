@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid d-flex justify-content-center text-center mt-2 bg-light">
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a href="">Users</a>
+        </div>
+    </div>
+
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/user/list}">Users</a>
+        </div>
+    </div>
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/client/list}">Client Data</a>
+
+        </div>
+    </div>
+    <div class="row ml-5">
+        <div class="col-sm-8 mb-2">
+            <a class="btn btn-success" th:href="@{/user/login}">Logout</a>
+
+        </div>
+    </div>
+
+</div>
+<footer>
+    <div class="footer bg-light">
+        <p></p>
+    </div>
+</footer>
+</body>
+</html>
